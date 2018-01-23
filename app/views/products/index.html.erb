@@ -2,3 +2,14 @@
   <p><%= product.name %> - <%= truncate product.description %></p>
   <button class="js-more" data-id="<%= product.id %>">More...</button>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function (){
+  $(".js-more").on("click", function () {
+    var id = $(this).data("id");
+    $.get("/products/"+ id + "/desc", function(data) {
+      $("#product-" +id).text(data);
+    });
+  });
+});
+</script>
