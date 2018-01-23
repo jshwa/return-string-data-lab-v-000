@@ -12,6 +12,9 @@ $(function (){
     $.get("/products/"+ id + "/description", function(data) {
       $("#product-" +id).text(data);
     });
+    $.get("/products/" + id + "/inventory", function(data){
+      $("#product-" +id).append(data === "true" ? "Available": "Sold Out")
+    });
   });
 });
 </script>
