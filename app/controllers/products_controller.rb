@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def desc
+    @product = Product.find(params[:id])
+    render plain @product.description
+  end
+
   private
 
   def product_params
