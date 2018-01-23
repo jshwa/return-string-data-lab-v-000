@@ -1,3 +1,4 @@
 <% @products.each do |product| %>
   <p><%= product.name %> - <%= truncate product.description %></p>
+  <%= button_to "More..." %>
 <% end %>
